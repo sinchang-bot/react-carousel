@@ -1,7 +1,7 @@
-import Carousel, { Dots } from '@brainhubeu/react-carousel';
+import Carousel, { Dots } from '../../src';
 import Icon from 'react-fa';
 
-import '@brainhubeu/react-carousel/lib/style.css';
+// import '@brainhubeu/react-carousel/lib/style.css';
 import './styles/carousel.scss';
 import imageOne from './static/mona.jpg';
 import imageTwo from './static/scream.jpg';
