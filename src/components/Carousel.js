@@ -321,7 +321,7 @@ export default class Carousel extends Component {
     const { pageX } = e;
     if (this.state.dragStart !== null) {
       this.setState(previousState => ({
-        dragOffset: this.getProp('rtl') ? (pageX - previousState.dragStart) * -1 : pageX - previousState.dragStart,
+        dragOffset: this.getProp('rtl') ? previousState.dragStart - pageX : pageX - previousState.dragStart,
       }));
     }
   };
@@ -351,7 +351,7 @@ export default class Carousel extends Component {
     const { changedTouches } = e;
     if (this.state.dragStart !== null) {
       this.setState(previousState => ({
-        dragOffset: this.getProp('rtl') ? (changedTouches[0].pageX - previousState.dragStart) * -1 : (changedTouches[0].pageX - previousState.dragStart),
+        dragOffset: this.getProp('rtl') ? previousState.dragStart - changedTouches[0].pageX : changedTouches[0].pageX - previousState.dragStart,
       }));
     }
   };
@@ -550,7 +550,7 @@ export default class Carousel extends Component {
 
     if (isRTL) {
       trackStyles.marginRight = `${this.getAdditionalClonesOffset()}px`;
-      trackStyles.transform = `translateX(${transformOffset * (-1)}px)`;
+      trackStyles.transform = `translateX(${-transformOffset}px)`;
     } else {
       trackStyles.marginLeft = `${this.getAdditionalClonesOffset()}px`;
       trackStyles.transform = `translateX(${transformOffset}px)`;
